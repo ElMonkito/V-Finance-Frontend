@@ -1,7 +1,15 @@
 import axios from "axios";
 
-const instance = axios.create({
+const api = axios.create({
     baseURL: "http://localhost:8000/api",
 });
 
-export default instance;
+export const getMonthlyTotal = (token: string, month:number) => {
+    return api.get(`/expenses/monthly_total/?month=${month}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
+
+export default api;
