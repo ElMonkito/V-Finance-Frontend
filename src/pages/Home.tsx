@@ -24,21 +24,36 @@ export default function Home() {
         getMonthlyTotal(token, month)
             .then((res) => setTotal(res.data.total))
             .catch((err) => console.error("Erreur récupération du total", err));
-    }, [month]);
+    }, [month, navigate]);
 
     return (
         <Box>
             <Header />
-            <Grid container spacing={2} sx={{ p:{xs: 2, md: 10 }}}>
-                <Grid size={{ xs: 12, md: 6}}  display="flex" justifyContent={isMobile ? "center" : "flex-start"}>
+
+            <Grid container spacing={2} sx={{ p: { xs: 2, md: 10 } }}>
+                <Grid
+                    container
+                    size={{ xs: 12, md: 6 }}
+                    alignItems="center"
+                    justifyContent={isMobile ? "center" : "flex-start"}
+                    sx={{ pt: { xs: 0, md: 8 }, pl: {xs: 0, md: 10} }}
+                >
                     <MonthlySummary month={month} setMonth={setMonth} total={total} />
                 </Grid>
+
                 {!isMobile && (
-                    <Grid size={{ xs: 12, md: 6}}>
+                    <Grid
+                        container
+                        size={{ xs: 12, md: 6 }}
+                        alignItems="center"
+                        justifyContent="center"
+                        sx={{ p: { xs: 2, md: 10 } }}
+                    >
                         <Chart />
                     </Grid>
                 )}
             </Grid>
+
             <MobileNav />
         </Box>
     );

@@ -12,4 +12,9 @@ export const getMonthlyTotal = (token: string, month:number) => {
     });
 };
 
+export const getExpenses = (token: string) =>
+    api.get("/expenses", {
+        headers: {Authorization: `Bearer ${token}`}
+    });
+
 export default api;
