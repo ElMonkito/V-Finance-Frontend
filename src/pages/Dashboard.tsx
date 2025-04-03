@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     Typography,
     Box,
@@ -11,6 +12,7 @@ import {
 import { getMonthlyTotal } from "../services/api";
 
 const Dashboard = () => {
+    const navigate = useNavigate();
     const [total, setTotal] = useState<number | null>(null);
     const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
 
@@ -20,7 +22,11 @@ const Dashboard = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (!token) return;
+
+        if (!token) {
+            navigate("/login");
+            return;
+        }
 
         getMonthlyTotal(token, month)
             .then((res) => {
@@ -29,7 +35,8 @@ const Dashboard = () => {
             .catch((err) => {
                 console.error("Erreur récupération du total", err);
             });
-    }, [month]);
+    }, [month, navigate]);
+
 
     return (
         <Box sx={{ mt: 4 }}>
