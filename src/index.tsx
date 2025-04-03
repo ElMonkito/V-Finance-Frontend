@@ -8,6 +8,9 @@ const theme = createTheme({
     palette: {
         mode: 'light',
     },
+    typography: {
+        fontFamily: `'Outfit', sans-serif`
+    }
 });
 
 const root = ReactDOM.createRoot(
