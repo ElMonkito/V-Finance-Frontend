@@ -1,13 +1,15 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import Chart from "./components/Chart";
 
 export default function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/login" element={<Login/>}/>
-                <Route path="/" element={<Dashboard/>}/>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/stats" element={<Chart />}/>
             </Routes>
         </Router>
     )
