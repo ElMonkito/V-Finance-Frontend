@@ -7,7 +7,7 @@ import MonthlySummary from "../components/MonthlySummary";
 import Chart from "../components/Chart";
 import {getMonthlyTotal} from "../services/api";
 import MobileNav from "../components/MobileNav";
-import ListPage from "./ListPage";
+import Expenses from "./Expenses";
 
 export default function Home() {
     const navigate = useNavigate();
@@ -54,7 +54,7 @@ export default function Home() {
                     </Grid>
                 )}
             </Grid>
-            <ListPage/>
+            <Expenses/>
             <MobileNav/>
         </Box>
     );

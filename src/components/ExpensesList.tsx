@@ -19,7 +19,7 @@ type Props = {
     expenses: Expense[];
 };
 
-export default function List({ expenses }: Props) {
+export default function ExpensesList({ expenses }: Props) {
 
     return (
         <Box sx={{ p: { xs: 2, md: 6 }, mb: {xs: 8, md: 0}}}>

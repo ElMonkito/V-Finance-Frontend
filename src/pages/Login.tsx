@@ -38,6 +38,7 @@ export default function Login() {
                     />
                     <TextField
                         label="Password"
+                        type="password"
                         fullWidth
                         margin="normal"
                         value={password}

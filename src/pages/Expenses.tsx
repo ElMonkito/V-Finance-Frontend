@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getExpenses } from "../services/api";
-import List from "../components/List";
+import ExpensesList from "../components/ExpensesList";
 import MobileNav from "../components/MobileNav";
 import {Box} from "@mui/material";
 
-export default function ListPage() {
+export default function Expenses() {
     const [expenses, setExpenses] = useState([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function ListPage() {
 
     return (
         <Box>
-        <List expenses={expenses} />
+        <ExpensesList expenses={expenses} />
             <MobileNav />
         </Box>
     );
