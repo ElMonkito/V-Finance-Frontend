@@ -1,6 +1,7 @@
 import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,7 +20,8 @@ export default function MobileNav()  {
                 }}
             >
                 <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                <BottomNavigationAction label="Stats" icon={<BarChartIcon />} />
+                <BottomNavigationAction label="Liste" icon={<FormatListNumberedIcon />} />
+                <BottomNavigationAction label="Graphique" icon={<BarChartIcon />} />
             </BottomNavigation>
         </Paper>
     );
