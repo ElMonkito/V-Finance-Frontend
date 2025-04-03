@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Box, useMediaQuery } from "@mui/material";
+import React, {useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import {Box, useMediaQuery} from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Header from "../components/Header";
 import MonthlySummary from "../components/MonthlySummary";
 import Chart from "../components/Chart";
-import { getMonthlyTotal } from "../services/api";
+import {getMonthlyTotal} from "../services/api";
 import MobileNav from "../components/MobileNav";
+import ListPage from "./ListPage";
 
 export default function Home() {
     const navigate = useNavigate();
@@ -28,33 +29,33 @@ export default function Home() {
 
     return (
         <Box>
-            <Header />
+            <Header/>
 
-            <Grid container spacing={2} sx={{ p: { xs: 2, md: 10 } }}>
+            <Grid container spacing={2} sx={{p: {xs: 2, md: 10}}}>
                 <Grid
                     container
-                    size={{ xs: 12, md: 6 }}
+                    size={{xs: 12, md: 6}}
                     alignItems="center"
                     justifyContent={isMobile ? "center" : "flex-start"}
-                    sx={{ pt: { xs: 0, md: 8 }, pl: {xs: 0, md: 10} }}
+                    sx={{pt: {xs: 0, md: 8}, pl: {xs: 0, md: 10}}}
                 >
-                    <MonthlySummary month={month} setMonth={setMonth} total={total} />
+                    <MonthlySummary month={month} setMonth={setMonth} total={total}/>
                 </Grid>
 
                 {!isMobile && (
                     <Grid
                         container
-                        size={{ xs: 12, md: 6 }}
+                        size={{xs: 12, md: 6}}
                         alignItems="center"
                         justifyContent="center"
-                        sx={{ p: { xs: 2, md: 10 } }}
+                        sx={{p: {xs: 2, md: 10}}}
                     >
-                        <Chart />
+                        <Chart/>
                     </Grid>
                 )}
             </Grid>
-
-            <MobileNav />
+            <ListPage/>
+            <MobileNav/>
         </Box>
     );
 }

@@ -12,6 +12,7 @@ type Expense = {
     amount: number;
     date: string;
     description: string;
+    category: string;
 };
 
 type Props = {
@@ -21,10 +22,10 @@ type Props = {
 export default function List({ expenses }: Props) {
 
     return (
-        <Box sx={{ p: { xs: 2, md: 6 } }}>
-            <h1>Test</h1>
+        <Box sx={{ p: { xs: 2, md: 6 }, mb: {xs: 8, md: 0}}}>
+            <h1>Last Expenses</h1>
             <Grid container spacing={2}>
-                {expenses.slice(0, 5).map((expense) => (
+                {expenses.slice(0, 6).map((expense) => (
                     <Grid size={{ xs: 12, sm: 6, md: 4 }} key={expense.id}>
                         <Card elevation={3}>
                             <CardContent>
@@ -36,6 +37,9 @@ export default function List({ expenses }: Props) {
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
                                     Date: {expense.date}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    Category: {expense.category}
                                 </Typography>
                                 <Typography variant="body2" sx={{ mt: 1 }}>
                                     {expense.description || "No description"}
